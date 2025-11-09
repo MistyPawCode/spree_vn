@@ -518,7 +518,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_162146) do
     t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
-    t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+    t.decimal "pre_tax_amount", precision: 15, default: "0", null: false
     t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.jsonb "public_metadata"
@@ -1370,7 +1370,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_162146) do
     t.bigint "exchange_variant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+    t.decimal "pre_tax_amount", precision: 15, default: "0", null: false
     t.decimal "included_tax_total", precision: 12, scale: 4, default: "0.0", null: false
     t.decimal "additional_tax_total", precision: 12, scale: 4, default: "0.0", null: false
     t.string "reception_status"
@@ -1429,7 +1429,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_04_162146) do
     t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
-    t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+    t.decimal "pre_tax_amount", precision: 15, default: "0", null: false
     t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.jsonb "public_metadata"

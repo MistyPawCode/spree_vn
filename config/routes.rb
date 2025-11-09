@@ -1,5 +1,3 @@
-require "sidekiq/web" # require the web UI
-
 Rails.application.routes.draw do
   Spree::Core::Engine.add_routes do
     # Storefront routes
@@ -39,8 +37,6 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being
   # the default of "spree".
   mount Spree::Core::Engine, at: '/'
-
-  mount Sidekiq::Web => "/sidekiq" # access it at http://localhost:3000/sidekiq
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

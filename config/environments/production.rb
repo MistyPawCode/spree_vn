@@ -48,21 +48,10 @@ Rails.application.configure do
 
   # Replace the default in-process memory cache store with a durable alternative.
   # https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-rediscachestore
-  if ENV['REDIS_CACHE_URL'].present?
-    cache_servers = ENV['REDIS_CACHE_URL'].split(',') # if multiple instances are provided
-    config.cache_store = :redis_cache_store, {
-      url: cache_servers,
-      connect_timeout:    30,  # Defaults to 1 second
-      read_timeout:       0.2, # Defaults to 1 second
-      write_timeout:      0.2, # Defaults to 1 second
-      reconnect_attempts: 2,   # Defaults to 1
-    }
-  else
-    config.cache_store = :memory_store
-  end
-
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  config.active_job.queue_adapter = :sidekiq
+  config.cache_store = :solid_cache_store
+  config.active_job.queue_adapter = :solid_queue
+  config.solid_queue.connects_to = { database: { writing: :queue } }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

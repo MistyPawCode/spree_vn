@@ -30,7 +30,7 @@ gem "jbuilder"
 gem 'mini_racer', platforms: :ruby
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+# gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -60,6 +60,7 @@ group :development, :test do
   # monitoring
   gem 'pry'
   gem 'pry-remote'
+  gem "i18n-tasks"
 end
 
 group :development do
@@ -89,16 +90,12 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-# Use Sidekiq for background jobs
-gem 'sidekiq'
-
 # Use Devise for authentication
 gem "devise"
 
 # Sentry for error/performance monitoring
 gem 'sentry-ruby'
 gem 'sentry-rails'
-gem 'sentry-sidekiq'
 
 # Spree gems
 spree_opts = '~> 5.2.0.rc1'
@@ -112,3 +109,9 @@ gem "spree_stripe"
 gem "spree_google_analytics", "~> 1.0"
 gem "spree_klaviyo", "~> 1.0"
 gem "spree_paypal_checkout", "~> 0.5"
+
+gem "solid_queue", "~> 1.2"
+
+gem "solid_cache", "~> 1.0"
+
+gem "solid_cable", "~> 3.0"

@@ -13,15 +13,7 @@ if defined?(Sentry) && ENV['SENTRY_DSN'].present?
 
     config.release = "spree@#{ENV['RENDER_GIT_COMMIT']}" if ENV['RENDER_GIT_COMMIT'].present?
 
-    config.excluded_exceptions = [
-      'ActionController::RoutingError',
-      'ActiveRecord::RecordNotFound',
-      'Sidekiq::JobRetry::Skip',
-      'Sidekiq::JobRetry::SilentRetry',
-      'Aws::S3::Errors::NoSuchKey',
-      'Aws::S3::Errors::NotFound',
-      'ActiveStorage::FileNotFoundError'
-    ]
+    config.excluded_exceptions = %w[ActionController::RoutingError ActiveRecord::RecordNotFound Aws::S3::Errors::NoSuchKey Aws::S3::Errors::NotFound ActiveStorage::FileNotFoundError]
 
     # Use native Rails error subscriber
     # https://guides.rubyonrails.org/error_reporting.html

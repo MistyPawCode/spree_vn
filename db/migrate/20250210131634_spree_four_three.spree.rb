@@ -193,7 +193,7 @@ class SpreeFourThree < ActiveRecord::Migration[5.2]
       t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
       t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
       t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
-      t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+      t.decimal "pre_tax_amount", precision: 15, scale: 0, default: 0, null: false
       t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
       t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
       t.index ["order_id"], name: "index_spree_line_items_on_order_id"
@@ -689,7 +689,7 @@ class SpreeFourThree < ActiveRecord::Migration[5.2]
       t.bigint "exchange_variant_id"
       t.datetime "created_at", precision: 6, null: false
       t.datetime "updated_at", precision: 6, null: false
-      t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+      t.decimal "pre_tax_amount", precision: 15, scale: 0, default: 0, null: false
       t.decimal "included_tax_total", precision: 12, scale: 4, default: "0.0", null: false
       t.decimal "additional_tax_total", precision: 12, scale: 4, default: "0.0", null: false
       t.string "reception_status"
@@ -740,7 +740,7 @@ class SpreeFourThree < ActiveRecord::Migration[5.2]
       t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
       t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
       t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
-      t.decimal "pre_tax_amount", precision: 12, scale: 4, default: "0.0", null: false
+      t.decimal "pre_tax_amount", precision: 15, scale: 0, default: 0, null: false
       t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
       t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
       t.index ["address_id"], name: "index_spree_shipments_on_address_id"
