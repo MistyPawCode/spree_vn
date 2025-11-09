@@ -46,4 +46,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "spree/home#index"
+
+  mount MissionControl::Jobs::Engine, at: "/jobs"
+  mount SolidErrors::Engine, at: "/solid_errors"
 end

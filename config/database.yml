@@ -17,7 +17,16 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  #
+  # For 3-server setup (web, jobs, db - each with 8GB RAM and 8 vCPU):
+  # Web server: 4 workers × 5 threads = 20 connections
+  # Jobs server: 6 workers × 4 threads = 24 connections
+  # Total needed: ~50 connections (with buffer for console, migrations, etc.)
+  #
+  # Set DB_POOL on each server:
+  # - Web server: DB_POOL=25 (20 threads + 5 buffer)
+  # - Jobs server: DB_POOL=30 (24 threads + 6 buffer)
+  pool: <%= ENV.fetch("DB_POOL", ENV.fetch("RAILS_MAX_THREADS") { 5 }).to_i %>
 
 development: &development
   <<: *default

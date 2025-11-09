@@ -4,8 +4,8 @@ default: &default
       batch_size: 500
   workers:
     - queues: "*"
-      threads: 3
-      processes: <%= ENV.fetch("JOB_CONCURRENCY", 1) %>
+      threads: <%= ENV.fetch("SOLID_QUEUE_THREADS", 3).to_i %>
+      processes: <%= ENV.fetch("JOB_CONCURRENCY", 2).to_i %>
       polling_interval: 0.1
 
 development:
@@ -15,4 +15,15 @@ test:
   <<: *default
 
 production:
-  <<: *default
+  # For dedicated jobs server with 8 vCPU and 8GB RAM:
+  # - Use 6-7 worker processes to utilize multiple cores
+  # - Use 4 threads per worker for background job processing
+  # - Total concurrent jobs: 6-7 workers × 4 threads = 24-28
+  dispatchers:
+    - polling_interval: 1
+      batch_size: 500
+  workers:
+    - queues: "*"
+      threads: <%= ENV.fetch("SOLID_QUEUE_THREADS", 4).to_i %>
+      processes: <%= ENV.fetch("JOB_CONCURRENCY", 6).to_i %>
+      polling_interval: 0.1

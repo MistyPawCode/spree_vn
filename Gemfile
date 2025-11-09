@@ -110,8 +110,8 @@ gem "spree_google_analytics", "~> 1.0"
 gem "spree_klaviyo", "~> 1.0"
 gem "spree_paypal_checkout", "~> 0.5"
 
-gem "solid_queue", "~> 1.2"
-
-gem "solid_cache", "~> 1.0"
-
-gem "solid_cable", "~> 3.0"
+gem "solid_queue"
+gem "solid_cache"
+gem "solid_cable"
+gem "solid_errors"
+gem "mission_control-jobs"

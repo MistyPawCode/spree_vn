@@ -97,4 +97,10 @@ Rails.application.configure do
   if ENV['RENDER_EXTERNAL_URL'].present?
     Rails.application.routes.default_url_options[:host] = ENV['RENDER_EXTERNAL_URL']
   end
+  # Configure Solid Errors
+  config.solid_errors.send_emails = true
+  config.solid_errors.email_from = ""
+  config.solid_errors.email_to = ""
+  config.solid_errors.username = Rails.application.credentials.dig(:mission_control, :http_basic_auth_user)
+  config.solid_errors.password = Rails.application.credentials.dig(:mission_control, :http_basic_auth_password)
 end

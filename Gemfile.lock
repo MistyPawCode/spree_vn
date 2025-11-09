@@ -417,6 +417,16 @@ GEM
     mini_racer (0.19.1)
       libv8-node (~> 24.1.0.0)
     minitest (5.26.0)
+    mission_control-jobs (1.1.0)
+      actioncable (>= 7.1)
+      actionpack (>= 7.1)
+      activejob (>= 7.1)
+      activerecord (>= 7.1)
+      importmap-rails (>= 1.2.1)
+      irb (~> 1.13)
+      railties (>= 7.1)
+      stimulus-rails
+      turbo-rails
     mobility (1.3.2)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
@@ -721,6 +731,12 @@ GEM
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
+    solid_errors (0.7.0)
+      actionpack (>= 7.0)
+      actionview (>= 7.0)
+      activerecord (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
     solid_queue (1.2.4)
       activejob (>= 7.1)
       activerecord (>= 7.1)
@@ -979,6 +995,7 @@ DEPENDENCIES
   jbuilder
   letter_opener
   mini_racer
+  mission_control-jobs
   pg (~> 1.6)
   propshaft
   pry
@@ -995,9 +1012,10 @@ DEPENDENCIES
   sentry-ruby
   solargraph
   solargraph-rails
-  solid_cable (~> 3.0)
-  solid_cache (~> 1.0)
-  solid_queue (~> 1.2)
+  solid_cable
+  solid_cache
+  solid_errors
+  solid_queue
   spree (~> 5.2.0.rc1)
   spree_admin (~> 5.2.0.rc1)
   spree_dev_tools
