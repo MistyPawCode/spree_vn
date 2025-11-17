@@ -261,8 +261,8 @@ GEM
       faraday (>= 0.8)
     faraday-multipart (1.1.1)
       multipart-post (~> 2.0)
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     faraday-net_http_persistent (2.3.1)
       faraday (~> 2.5)
       net-http-persistent (>= 4.0.4, < 5)
@@ -373,7 +373,7 @@ GEM
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     jmespath (1.6.2)
-    json (2.15.2)
+    json (2.16.0)
     jsonapi-rspec (0.0.11)
       rspec-core
       rspec-expectations
@@ -436,7 +436,7 @@ GEM
     mini_mime (1.1.5)
     mini_racer (0.19.1)
       libv8-node (~> 24.1.0.0)
-    minitest (5.26.0)
+    minitest (5.26.1)
     mission_control-jobs (1.1.0)
       actioncable (>= 7.1)
       actionpack (>= 7.1)
@@ -502,8 +502,8 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.3)
     parallel (1.27.0)
-    paranoia (3.0.1)
-      activerecord (>= 6, < 8.1)
+    paranoia (3.1.0)
+      activerecord (>= 7, < 8.2)
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
@@ -654,7 +654,7 @@ GEM
       rubocop-ast (>= 1.47.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.47.1)
+    rubocop-ast (1.48.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     rubocop-performance (1.26.1)
@@ -829,7 +829,7 @@ GEM
       tracking_number
       validates_zipcode
       wannabe_bool
-    spree_dev_tools (0.3.2)
+    spree_dev_tools (0.3.3)
       appraisal
       awesome_print
       brakeman
