@@ -116,3 +116,5 @@ gem "solid_cable"
 gem "solid_errors"
 gem "mission_control-jobs"
 gem "aws-sdk-s3"
+gem 'dotenv-rails', '~> 3.1'
+

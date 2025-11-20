@@ -9,7 +9,8 @@ Rails.application.routes.draw do
         controllers: {
           sessions: 'spree/user_sessions',
           passwords: 'spree/user_passwords',
-          registrations: 'spree/user_registrations'
+          registrations: 'spree/user_registrations',
+          confirmations: 'spree/user_confirmations'
         },
         router_name: :spree
       )
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
         sessions: 'spree/admin/user_sessions',
         passwords: 'spree/admin/user_passwords'
       },
-      skip: :registrations,
       path: :admin_user,
       router_name: :spree
     )

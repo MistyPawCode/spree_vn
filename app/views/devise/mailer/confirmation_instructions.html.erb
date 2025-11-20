@@ -1,0 +1,27 @@
+<table style="font-family: Arial, sans-serif; width: 100%; background: #f7f7f7; padding: 30px;">
+  <tr>
+    <td style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 8px; color: #000 !important;">
+
+      <h2 style="text-align: center; color: #333 !important;">Xác nhận tài khoản của bạn</h2>
+
+      <p style="color: #000 !important;">Xin chào <strong><%= @email %></strong>,</p>
+
+      <p style="color: #000 !important;">
+        Cảm ơn bạn đã đăng ký tài khoản!
+        Vui lòng nhấn vào nút bên dưới để <strong>xác nhận email</strong> và kích hoạt tài khoản.
+      </p>
+
+      <div style="text-align: center; margin: 30px 0;">
+        <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"
+           style="background: #4CAF50; color: white; padding: 12px 25px;
+             border-radius: 5px; text-decoration: none; font-weight: bold;">
+          Xác nhận tài khoản
+        </a>
+
+      </div>
+      <p style="color: #000 !important;">Nếu bạn không tạo tài khoản, bạn có thể bỏ qua email này.</p>
+
+      <p style="color: #000 !important;">Trân trọng,<br>NhacCuSongMo</p>
+    </td>
+  </tr>
+</table>

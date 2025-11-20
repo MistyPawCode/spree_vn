@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_09_140255) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_17_054918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pg_trgm"
@@ -106,6 +106,28 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_09_140255) do
     t.index ["byte_size"], name: "index_solid_cache_entries_on_byte_size"
     t.index ["key_hash", "byte_size"], name: "index_solid_cache_entries_on_key_hash_and_byte_size"
     t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
+  end
+
+  create_table "solid_errors", force: :cascade do |t|
+    t.text "exception_class", null: false
+    t.text "message", null: false
+    t.text "severity", null: false
+    t.text "source"
+    t.datetime "resolved_at"
+    t.string "fingerprint", limit: 64, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fingerprint"], name: "index_solid_errors_on_fingerprint", unique: true
+    t.index ["resolved_at"], name: "index_solid_errors_on_resolved_at"
+  end
+
+  create_table "solid_errors_occurrences", force: :cascade do |t|
+    t.integer "error_id", null: false
+    t.text "backtrace"
+    t.json "context"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["error_id"], name: "index_solid_errors_occurrences_on_error_id"
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
@@ -919,12 +941,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_09_140255) do
     t.index ["deleted_at"], name: "index_spree_page_blocks_on_deleted_at"
     t.index ["section_id", "position"], name: "index_spree_page_blocks_on_section_w_position"
     t.index ["section_id"], name: "index_spree_page_blocks_on_section_id"
-  end
-
+`  end
+`
   create_table "spree_page_links", force: :cascade do |t|
     t.string "parent_type"
     t.bigint "parent_id"
-    t.string "linkable_type"
+    t.string "linkable_type"````````````
     t.bigint "linkable_id"
     t.string "label"
     t.string "url"
@@ -2094,6 +2116,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_09_140255) do
     t.string "phone"
     t.boolean "accepts_email_marketing", default: false, null: false
     t.string "spree_api_key", limit: 48
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["accepts_email_marketing"], name: "index_spree_users_on_accepts_email_marketing"
     t.index ["bill_address_id"], name: "index_spree_users_on_bill_address_id"
     t.index ["ship_address_id"], name: "index_spree_users_on_ship_address_id"
@@ -2208,6 +2234,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_09_140255) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "solid_errors_occurrences", "solid_errors", column: "error_id"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

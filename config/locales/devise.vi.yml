@@ -1,0 +1,6 @@
+vi:
+  devise:
+    registrations:
+      signed_up_but_unconfirmed: "Tài khoản của bạn đã được tạo. Vui lòng kiểm tra email để xác nhận tài khoản."
+    user_registrations:
+      signed_up_but_unconfirmed: "Tài khoản của bạn đã được tạo. Vui lòng kiểm tra email để xác nhận tài khoản."
