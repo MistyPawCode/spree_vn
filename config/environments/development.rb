@@ -4,10 +4,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Make code changes take effect immediately without server restart.
-  config.enable_reloading = true
-
   # Do not eager load code on boot.
-  config.eager_load = false
+  config.eager_load = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -75,18 +73,14 @@ Rails.application.configure do
   # config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
-
   config.action_mailer.smtp_settings = {
-    user_name: "7528b47b4ebbea",
-    password: "e0bd171a936fe5",
-    address: "sandbox.smtp.mailtrap.io",
-    domain: "sandbox.smtp.mailtrap.io",
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true,
-    tls: false,
-    ssl: false,
-    openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE
+    user_name: '7528b47b4ebbea',
+    password: 'e0bd171a936fe5',
+    address: 'sandbox.smtp.mailtrap.io',
+    host: 'sandbox.smtp.mailtrap.io',
+    port: '587',
+    authentication: :login,
+  openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE
   }
 
   config.action_mailer.perform_deliveries = true

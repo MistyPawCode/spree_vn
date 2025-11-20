@@ -89,6 +89,8 @@ Spree.admin_user_class = 'Spree::AdminUser'
 Spree.google_places_api_key = ENV['GOOGLE_PLACES_API_KEY'] if ENV['GOOGLE_PLACES_API_KEY'].present?
 Spree.screenshot_api_token = ENV['SCREENSHOT_API_TOKEN'] if ENV['SCREENSHOT_API_TOKEN'].present?
 
+Spree::Config[:send_core_emails] = true
+
 Rails.application.config.to_prepare do
   require_dependency 'spree/authentication_helpers'
 end

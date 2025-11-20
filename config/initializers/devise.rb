@@ -5,7 +5,6 @@
 # are not: uncommented lines are intended to protect your configuration from
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
-#
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -28,8 +27,8 @@ Devise.setup do |config|
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Spree::DeviseMailer'
-
-  # Configure the parent class responsible to send e-mails.
+  config.mailer = 'Spree::DeviseMailer'
+  # Configure the parent class responsible to send e-mails .
   config.parent_mailer = 'Spree::BaseMailer'
 
   # ==> ORM configuration

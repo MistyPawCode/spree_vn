@@ -941,12 +941,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_17_054918) do
     t.index ["deleted_at"], name: "index_spree_page_blocks_on_deleted_at"
     t.index ["section_id", "position"], name: "index_spree_page_blocks_on_section_w_position"
     t.index ["section_id"], name: "index_spree_page_blocks_on_section_id"
-  end
-
+`  end
+`
   create_table "spree_page_links", force: :cascade do |t|
     t.string "parent_type"
     t.bigint "parent_id"
-    t.string "linkable_type"
+    t.string "linkable_type"````````````
     t.bigint "linkable_id"
     t.string "label"
     t.string "url"
