@@ -27,7 +27,10 @@ Devise.setup do |config|
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Spree::DeviseMailer'
-  config.mailer = 'Spree::DeviseMailer'
+  # config.mailer = 'Spree::DeviseMailer'
+  config.mailer = "DeviseMailer"
+
+
   # Configure the parent class responsible to send e-mails .
   config.parent_mailer = 'Spree::BaseMailer'
 
